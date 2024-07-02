@@ -1,17 +1,20 @@
 # 1
-def get_multiplied_digits(number):
+def single_root_words(root_word, *other_words):
+    root_word_lower = root_word.lower()
     # 2
-    str_number = str(number)
+    same_words = []
     # 3
-    first = int(str_number[0])
-    # 5
-    if len(str_number) > 1:
+    for word in other_words:
+        word_lower = word.lower()
         # 4
-        return first * get_multiplied_digits(int(str_number[1:]))
-    # 6
-    else:
-        return first
+        if root_word_lower in word_lower or word_lower in root_word_lower:
+            same_words.append(word)
+
+    return same_words
 
 
-result = get_multiplied_digits(40203)
-print(result)
+result1 = single_root_words('rich', 'richiest', 'orichalcum', 'cheers', 'richies')
+result2 = single_root_words('Disablement', 'Able', 'Mable', 'Disable', 'Bagel')
+
+print(result1)
+print(result2)
